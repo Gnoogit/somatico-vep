@@ -1,6 +1,9 @@
 # somatico-vep
 Pipeline Somático - Anotação ensembl-vep
 
+### gitpod - configuration
+
+<img width="814" alt="Screenshot 2023-11-17 at 19 20 13" src="https://github.com/renatopuga/somatico-vep/assets/8321336/4259c5ad-1cb4-4501-905c-7a306d1f8060">
 
 ### aria2 - fast download
 ```bash
