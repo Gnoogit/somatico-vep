@@ -210,6 +210,12 @@ Commands:
  not all situations.
 ```
 
+- `export` - colocando o plugin do bcftools no path
+
+```bash
+export BCFTOOLS_PLUGINS=//workspace/somatico-vep/bcftools/plugins/
+```
+
 
 
 
