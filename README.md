@@ -57,6 +57,18 @@ docker pull ensemblorg/ensembl-vep
 https://drive.google.com/drive/u/0/folders/1m2qmd0ca2Nwb7qcK58ER0zC8-1_9uAiE
 
 
+### criando diretório de output
+
+```bash
+mkdir -p vep_output
+```
+
+### permission 
+
+```bash
+chmod 777 vep_output
+```
+
 ### rodar vep
 
 ```bash
