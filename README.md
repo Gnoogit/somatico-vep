@@ -84,8 +84,34 @@ docker run -it --rm  -v $(pwd):/data ensemblorg/ensembl-vep vep \
 --individual all \
 --dir_cache /data/ \
 --cache --offline \
+--variant_class \
 --fork 10 \
 --fasta /data/homo_sapiens_merged/hg38.fa
 ```
 
-### 
+### VEP - Mais opções
+
+Todas as colunas de anotação padrão do VEP usando `--everything`, maior uso dos cpus do gitpod `--fork 16` e diminuição do buffer de 5k para 1k `--buffer_size 1000`.
+
+```bash
+docker run -it --rm  -v $(pwd):/data ensemblorg/ensembl-vep vep \
+-i /data/WP312.filtered.vcf.gz \
+-o /data/vep_output/WP312.filtered..vep.tsv \
+--assembly GRCh37  \
+--merged --pick \
+--pick_allele \
+--force_overwrite \
+--tab \
+--distance 0 \
+--everything \
+--individual all \
+--dir_cache /data/ \
+--cache --offline \
+--fork 16 \
+--buffer_size 1000 \
+--fasta /data/homo_sapiens_merged/hg38.fa
+```
+
+
+
+
