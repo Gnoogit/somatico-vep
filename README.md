@@ -101,8 +101,8 @@ Todas as colunas de anotação padrão do VEP usando `--everything`, maior uso d
 
 ```bash
 docker run -it --rm  -v $(pwd):/data ensemblorg/ensembl-vep vep \
--i /data/WP312.filtered.vcf.gz  \
--o /data/vep_output/WP312.filtered.vep.vcf \
+-i /data/lite.vcf.gz  \
+-o /data/vep_output/lite.vep.vcf \
 --assembly GRCh37  \
 --merged \
 --fork 16 \
@@ -114,7 +114,6 @@ docker run -it --rm  -v $(pwd):/data ensemblorg/ensembl-vep vep \
 --no_intergenic \
 --distance 0 \
 --pick \
---pick_allele \
 --individual all \
 --vcf \
 --symbol \
