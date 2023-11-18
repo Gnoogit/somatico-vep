@@ -51,6 +51,8 @@ docker pull ensemblorg/ensembl-vep
 
 ### WP312 - LMA sample
 
+- WP312.filtered.vcf.gz
+- WP312.filtered.vcf.gz.tbi
 
 https://drive.google.com/drive/u/0/folders/1m2qmd0ca2Nwb7qcK58ER0zC8-1_9uAiE
 
