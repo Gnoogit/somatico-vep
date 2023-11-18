@@ -84,7 +84,7 @@ docker run -it --rm  -v $(pwd):/data ensemblorg/ensembl-vep vep \
 --individual all \
 --dir_cache /data/ \
 --cache --offline \
---variant_class \
+--check_existing \
 --fork 10 \
 --fasta /data/homo_sapiens_merged/hg38.fa
 ```
