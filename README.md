@@ -97,7 +97,7 @@ docker run -it --rm  -v $(pwd):/data ensemblorg/ensembl-vep vep \
 
 ### VEP - Mais opções
 
-Todas as colunas de anotação padrão do VEP usando `--everything`, maior uso dos cpus do gitpod `--fork 16` e diminuição do buffer de 5k para 1k `--buffer_size 20`.
+Todas as colunas de anotação padrão do VEP usando `--everything`, maior uso dos cpus do gitpod `--fork 16` e diminuição do buffer de 5k para 1k `--buffer_size 200`.
 
 ```bash
 docker run -it --rm  -v $(pwd):/data ensemblorg/ensembl-vep vep \
