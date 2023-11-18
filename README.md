@@ -294,8 +294,7 @@ Examples:
 
 ```bash
 ./bcftools/bcftools +split-vep \
--l vep_output/lite.vep.vcf \|
-cut -f2 | tr '\n\r' '\t' \|
+-l vep_output/lite.vep.vcf | cut -f2 | tr '\n\r' '\t' | \
 awk '{print("CHROM\tPOS\tREF\t"$0"\tFILTER\tGT\tDP\tAD\tAF")}' > vep_output/lite.vep.tsv
 ```
 
