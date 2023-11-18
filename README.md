@@ -23,18 +23,24 @@ aria2c -x 8 https://storage.googleapis.com/puga-reference/homo_sapiens_merged_11
 unzip homo_sapiens_merged_110_GRCh37.zip
 ```
 
-### hg38.fa
+### hg19.fa
+
+- download UCSC hg19.fa.gz
 
 ```bash
-aria2c -x 5 https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz
+ariac -x 5 https://hgdownload.soe.ucsc.edu/goldenPath/hg19/bigZips/hg19.fa.gz
 ```
 
-```bash
-gunzip hg38.fa.gz 
-```
+- descompactar
 
 ```bash
-mv hg38.fa homo_sapiens_merged
+gunzip hg19.fa.gz
+```
+
+- mover para o diretório homo_sapiens_merged
+
+```bash
+mv hg19.fa homo_sapiens_merged
 ```
 
 ```bash
@@ -74,7 +80,7 @@ chmod 777 vep_output
 ```bash
 docker run -it --rm  -v $(pwd):/data ensemblorg/ensembl-vep vep \
 -i /data/WP312.filtered.vcf.gz \
--o /data/vep_output/WP312.filtered..vep.tsv \
+-o /data/vep_output/WP312.filtered.vep.tsv \
 --assembly GRCh37  \
 --merged -pick \
 --pick_allele \
@@ -86,30 +92,43 @@ docker run -it --rm  -v $(pwd):/data ensemblorg/ensembl-vep vep \
 --cache --offline \
 --check_existing \
 --fork 10 \
---fasta /data/homo_sapiens_merged/hg38.fa
+--fasta /data/homo_sapiens_merged/hg19.fa
 ```
 
 ### VEP - Mais opções
 
-Todas as colunas de anotação padrão do VEP usando `--everything`, maior uso dos cpus do gitpod `--fork 16` e diminuição do buffer de 5k para 1k `--buffer_size 1000`.
+Todas as colunas de anotação padrão do VEP usando `--everything`, maior uso dos cpus do gitpod `--fork 16` e diminuição do buffer de 5k para 1k `--buffer_size 20`.
 
 ```bash
 docker run -it --rm  -v $(pwd):/data ensemblorg/ensembl-vep vep \
--i /data/WP312.filtered.vcf.gz \
--o /data/vep_output/WP312.filtered.everything.vep.tsv \
+-i /data/WP312.filtered.vcf.gz  \
+-o /data/vep_output/WP312.filtered.vep.vcf \
 --assembly GRCh37  \
---merged --pick \
---pick_allele \
---force_overwrite \
---tab \
---distance 0 \
---everything \
---individual all \
---dir_cache /data/ \
---cache --offline \
+--merged \
 --fork 16 \
---buffer_size 1000 \
---fasta /data/homo_sapiens_merged/hg38.fa
+--buffer_size 200 \
+--force_overwrite \
+--dir_cache /data/ \
+--offline \
+--cache \
+--no_intergenic \
+--distance 0 \
+--pick \
+--pick_allele \
+--individual all \
+--vcf \
+--symbol \
+--biotype \
+--hgvs \
+--numbers \
+--af \
+--af_gnomadg \
+--variant_class \
+--sift b \
+--polyphen b \
+--check_existing \
+--fields "Location,SYMBOL,Consequence,Feature,BIOTYPE,HGVSc,HGVSp,EXON,INTRON,VARIANT_CLASS,SIFT,PolyPhen,AF,gnomADg_AF,CLIN_SIG,SOMATIC,PHENO" \
+--fasta /data/homo_sapiens_merged/hg19.fa
 ```
 
 
