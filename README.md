@@ -28,7 +28,7 @@ unzip homo_sapiens_merged_110_GRCh37.zip
 - download UCSC hg19.fa.gz
 
 ```bash
-ariac -x 5 https://hgdownload.soe.ucsc.edu/goldenPath/hg19/bigZips/hg19.fa.gz
+aria2c -x 5 https://hgdownload.soe.ucsc.edu/goldenPath/hg19/bigZips/hg19.fa.gz
 ```
 
 - descompactar
