@@ -131,6 +131,87 @@ docker run -it --rm  -v $(pwd):/data ensemblorg/ensembl-vep vep \
 --fasta /data/homo_sapiens_merged/hg19.fa
 ```
 
+### bcftools +split-vep
+
+
+
+- git clone Htslib
+
+```bash
+git clone --recurse-submodules https://github.com/samtools/htslib.git
+```
+
+- git clone cftools
+
+```bash
+git clone https://github.com/samtools/bcftools.git
+```
+
+- entrar no diretório bcftools
+
+```bash
+cd bcftools/
+```
+
+- compilar
+
+```bash
+make
+```
+
+- testar
+
+```bash
+./bcftools
+```
+
+```bash
+Program: bcftools (Tools for variant calling and manipulating VCFs and BCFs)
+Version: 1.18-25-g44deedcd (using htslib 1.18-52-g2140d03e)
+
+Usage:   bcftools [--version|--version-only] [--help] <command> <argument>
+
+Commands:
+
+ -- Indexing
+    index        index VCF/BCF files
+
+ -- VCF/BCF manipulation
+    annotate     annotate and edit VCF/BCF files
+    concat       concatenate VCF/BCF files from the same set of samples
+    convert      convert VCF/BCF files to different formats and back
+    head         view VCF/BCF file headers
+    isec         intersections of VCF/BCF files
+    merge        merge VCF/BCF files files from non-overlapping sample sets
+    norm         left-align and normalize indels
+    plugin       user-defined plugins
+    query        transform VCF/BCF into user-defined formats
+    reheader     modify VCF/BCF header, change sample names
+    sort         sort VCF/BCF file
+    view         VCF/BCF conversion, view, subset and filter VCF/BCF files
+
+ -- VCF/BCF analysis
+    call         SNP/indel calling
+    consensus    create consensus sequence by applying VCF variants
+    cnv          HMM CNV calling
+    csq          call variation consequences
+    filter       filter VCF/BCF files using fixed thresholds
+    gtcheck      check sample concordance, detect sample swaps and contamination
+    mpileup      multi-way pileup producing genotype likelihoods
+    roh          identify runs of autozygosity (HMM)
+    stats        produce VCF/BCF stats
+
+ -- Plugins (collection of programs for calling, file manipulation & analysis)
+    0 plugins available, run "bcftools plugin -l" for help
+
+ Most commands accept VCF, bgzipped VCF, and BCF with the file type detected
+ automatically even when streaming from a pipe. Indexed VCF and BCF will work
+ in all situations. Un-indexed VCF and BCF and streams will work in most but
+ not all situations.
+```
+
+
+
 
 
 
