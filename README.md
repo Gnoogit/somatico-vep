@@ -293,14 +293,10 @@ Examples:
 ## bcftools +split-vep com lite.vep.vcf
 
 ```bash
-./bcftools/bcftools +split-vep \
--l vep_output/lite.vep.vcf | cut -f2 | tr '\n\r' '\t' | \
-awk '{print("CHROM\tPOS\tREF\tALT\t"$0"\tFILTER\tGT\tDP\tAD\tAF")}' > vep_output/lite.vep.tsv
+/bcftools/bcftools +split-vep -l vep_output/lite.vep.vcf | cut -f2  | tr '\n\r' '\t' | awk '{print("CHROM\tPOS\tREF\tALT\t"$0"FILTER\tGT\tDP\tAD\tGT\tDP\tAD")}' > vep_output/lite.vep.tsv
 ```
 
 ```bash
-./bcftools/bcftools +split-vep \
--f '%CHROM\t%POS\t%REF\t%ALT\t%CSQ\t%FILTER\t[%GT\t%DP\t%AD\t%AF]\n' \
--d -A tab vep_output/lite.vep.vcf -p x >> vep_output/lite.vep.tsv
+./bcftools/bcftools +split-vep -f '%CHROM\t%POS\t%REF\t%ALT\t%CSQ\t%FILTER\t[%GT\t%DP\t%AD\t]\n' -d -A tab vep_output/lite.vep.vcf -p x >> vep_output/lite.vep.tsv
 ```
 
