@@ -96,7 +96,7 @@ Todas as colunas de anotação padrão do VEP usando `--everything`, maior uso d
 ```bash
 docker run -it --rm  -v $(pwd):/data ensemblorg/ensembl-vep vep \
 -i /data/WP312.filtered.vcf.gz \
--o /data/vep_output/WP312.filtered..vep.tsv \
+-o /data/vep_output/WP312.filtered.everything.vep.tsv \
 --assembly GRCh37  \
 --merged --pick \
 --pick_allele \
